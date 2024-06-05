@@ -4,3 +4,8 @@ export interface BlogPost {
   body: string;
   title: string;
 }
+
+export interface PaginationProps {
+  page: number;
+  totalPages: number;
+}

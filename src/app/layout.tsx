@@ -1,4 +1,6 @@
 "use client";
+import { store as Store } from "@/redux/store";
+import { Provider as ProviderRedux } from "react-redux";
 
 // import type { Metadata } from "next";
 
@@ -22,7 +24,7 @@ export default function RootLayout({
       <body
         className={cn("min-h-screen bg-background antialiased font-roboto")}
       >
-        <Provider store={store}>{children}</Provider>
+        <ProviderRedux store={Store}>{children}</ProviderRedux>
       </body>
     </html>
   );

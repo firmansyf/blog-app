@@ -1,11 +1,11 @@
 "use client";
 
 import { configureStore } from "@reduxjs/toolkit";
-import postBlogReduces from "./reducer/postsBlogReducer";
+import postBlogReducer from "./reducer/postsBlogReducer";
 
 export const store = configureStore({
   reducer: {
-    posts: postBlogReduces,
+    posts: postBlogReducer,
   },
 });
 

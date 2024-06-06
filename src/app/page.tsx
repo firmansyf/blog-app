@@ -40,11 +40,11 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen p-0">
+    <main className="min-h-screen w-full p-0">
       <NavbarComponent />
 
-      <section className="title flex items-center justify-center gap-3 flex-col py-[7rem]">
-        <span className="text-3xl tracking-wide font-semibold">
+      <section className="title flex items-center justify-center gap-3 flex-col py-[7rem] w-full">
+        <span className="max-sm:text-lg max-md:text-3xl max-lg:text-3xl xl:text-3xl tracking-wide font-semibold">
           Synapsis Blog Application
         </span>
         <p className="tracking-wide text-sm">
@@ -53,7 +53,7 @@ export default function Home() {
       </section>
 
       <section className="content w-full flex flex-col justify-center items-center gap-14">
-        <div className="for-search w-1/4 flex items-center border-2 gap-2 rounded p-1">
+        <div className="for-search xl:w-1/4 sm:w-11/12 md:w-1/3 flex items-center border-2 gap-2 rounded p-1">
           <input
             placeholder="Search for articles"
             className="w-full border-none bg-opacity-50 border text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
@@ -71,7 +71,8 @@ export default function Home() {
                 {searchedBlog?.map((item: BlogPost, index: number) => (
                   <Card
                     key={index}
-                    className="w-1/3 p-0 border-none cursor-pointer"
+                    className="sm:w-full lg:w-1/3 border-none cursor-pointer hover:bg-gray-200 transition-all max-xl:p-1 max-md:p-5 max-lg:p-6 max-sm:p-7"
+                    onClick={() => router.push(`/detail/${item.id}`)}
                   >
                     <CardHeader className="p-0">
                       <div className="flex items-center shadow-md rounded-lg justify-center w-[500px] h-[250px]">
@@ -97,34 +98,36 @@ export default function Home() {
                 ))}
               </div>
             ) : (
-              <div className="for-data w-full flex flex-wrap justify-center gap-7">
+              <div className="for-data flex flex-wrap justify-center gap-7 max-md:flex-col max-sm:flex-col max-xl:flex-row max-lg:flex-lg w-full">
                 {posts.map((item: BlogPost, index: number) => (
-                  <Card
-                    key={index}
-                    className="w-1/3 border-none cursor-pointer hover:bg-gray-200 transition-all p-1"
-                    onClick={() => router.push(`/detail/${item.id}`)}
-                  >
-                    <CardHeader className="p-0">
-                      <div className="flex items-center shadow-md rounded-lg justify-center w-[500px] h-[250px]">
-                        <h1 className="text-lg w-2/3 tracking-wide capitalize">
-                          {item.title}
-                        </h1>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="p-0">
-                      <section className="pt-2 flex flex-col gap-3">
-                        <div className="flex flex-col gap-1">
-                          <span className="text-xs text-gray-500 tracking-wide">
-                            Juni 21, 2021 . 11 min read
-                          </span>
+                  <>
+                    <Card
+                      key={index}
+                      className="sm:w-full lg:w-1/3 border-none cursor-pointer hover:bg-gray-200 transition-all max-xl:p-1 max-md:p-5 max-lg:p-6 max-sm:p-7"
+                      onClick={() => router.push(`/detail/${item.id}`)}
+                    >
+                      <CardHeader className="p-0">
+                        <div className="flex items-center shadow-md rounded-lg justify-center sm:w-full md:w-auto lg:w-auto lg:h-[250px]">
+                          <h1 className="text-lg w-2/3 tracking-wide capitalize">
+                            {item.title}
+                          </h1>
                         </div>
+                      </CardHeader>
+                      <CardContent className="p-0 w-full">
+                        <section className="pt-2 flex flex-col gap-3 w-full">
+                          <div className="flex flex-col gap-1">
+                            <span className="text-xs text-gray-500 tracking-wide">
+                              Juni 21, 2021 . 11 min read
+                            </span>
+                          </div>
 
-                        <p className="text-sm tracking-wide text-gray-500">
-                          {item.body}
-                        </p>
-                      </section>
-                    </CardContent>
-                  </Card>
+                          <p className="text-sm tracking-wide text-gray-500">
+                            {item.body}
+                          </p>
+                        </section>
+                      </CardContent>
+                    </Card>
+                  </>
                 ))}
               </div>
             )}

@@ -90,18 +90,18 @@ const DetailPosts: FC = () => {
   return (
     <>
       <NavbarComponent />
-      <section className="p-24 w-full flex justify-center items-center flex-col gap-5">
-        <div className="w-[63%] flex flex-col gap-3">
-          <h1 className="text-4xl capitalize w-auto font-bold">{data.title}</h1>
+      <section className="py-24 w-full flex justify-center items-center flex-col gap-5">
+        <div className="lg:w-[63%] xl:w-[63%] sm:w-fullflex flex-col xl:gap-5 sm:gap-3 max-sm:p-3 max-md:p-5 max-lg:p-5">
+          <h1 className="text-4xl capitalize font-bold w-full">{data.title}</h1>
 
-          <div className="flex justify-start w-full gap-5">
+          <div className="flex justify-start w-full gap-5 max-sm:pt-1">
             <img
               src="https://placehold.co/70x70"
-              className="rounded-full"
+              className="rounded-full mt-5"
               alt="img-profile"
             />
 
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col w-full justify-center">
               {user?.map((item: any, i: number) => (
                 <>
                   <span className="tracking-wide">{item.name}</span>
@@ -110,20 +110,20 @@ const DetailPosts: FC = () => {
               ))}
             </div>
           </div>
-          <Separator />
+          <Separator className="mt-10" />
         </div>
 
-        <div className="flex w-[63%] flex-col mt-10 gap-7">
+        <div className="flex xl:w-[63%] sm:w-full flex-col mt-10 gap-7 max-sm:p-5 max-md:p-5 max-lg:p-5">
           {randomImg && <img src={randomImg} alt="" className="" />}
 
           <p className="">{data.body}</p>
         </div>
 
-        <div className="flex w-[63%] flex-col mt-10 gap-3">
+        <div className="flex xl:w-[63%] sm:w-full flex-col mt-10 gap-3 max-sm:p-5 max-md:p-5 max-lg:p-5">
           <span>Comments</span>
 
           <Separator />
-          <div className="comment-data h-80 flex flex-col bg-gray-100 relative rounded-lg overflow-auto">
+          <div className="comment-data h-80 flex flex-col bg-gray-100 relative rounded-lg overflow-auto w-full">
             <div className="p-3 flex flex-col gap-3">
               {comments?.map((item: any, i: number) => {
                 return (
@@ -134,7 +134,7 @@ const DetailPosts: FC = () => {
                       </span>
                       <div
                         key={i}
-                        className="comment-section bg-white p-2 gap-1 mt-0 rounded-md w-1/2 flex flex-wrap"
+                        className="comment-section bg-white p-2 gap-1 mt-0 rounded-md xl:w-1/2 sm:w-full flex flex-wrap"
                       >
                         <span className="text-gray-500 text-sm">
                           {item.body}

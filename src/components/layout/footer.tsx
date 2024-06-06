@@ -13,7 +13,7 @@ const FooterComponent: FC<Props> = ({ data }) => {
 
   return (
     <>
-      <section className="flex w-full justify-center gap-10 mt-10 py-12">
+      <section className="flex max-lg:flex-row max-sm:flex-col-reverse w-full justify-center gap-10 mt-10 py-12">
         <Card className="p-10 flex flex-col justify-center gap-7 bg-[#283A61] text-white">
           <span className="text-xl font-semibold text-center w-full">
             Subscribe To <br /> Our Newsletter
@@ -25,7 +25,7 @@ const FooterComponent: FC<Props> = ({ data }) => {
           <Input placeholder="Type your email" />
           <Button className="w-min">Sign Up</Button>
         </Card>
-        <div className="flex flex-col gap-3 px-3">
+        <div className="flex flex-col gap-3 px-3 max-sm:p-5">
           <h1 className="uppercase tracking-wide font-semibold">
             Popular Posts
           </h1>

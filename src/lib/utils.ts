@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 // Fetch api random image
 export const getRandomImage = async (): Promise<string | null> => {
   try {
-    const response = await axios.get("https://random.imagecdn.app/500/250");
+    const response = await axios.get("https://random.imagecdn.app/800/400");
     return response.request.responseURL; // Return the final URL
   } catch (error) {
     console.error("Error fetching random image:", error);

@@ -7,4 +7,10 @@ export function getDataPostBlog(params: any) {
     params,
   });
 }
-  
+
+export function getDataPostBlogById(id: number) {
+  return axios({
+    method: "get",
+    url: `/posts/${id}`,
+  });
+}

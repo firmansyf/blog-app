@@ -118,7 +118,7 @@ const DetailPosts: FC = () => {
           <p className="">{data.body}</p>
         </div>
 
-        <div className="flex xl:w-[63%] sm:w-full flex-col mt-10 gap-3 max-sm:p-5 max-md:p-5 max-lg:p-5">
+        <div className="flex max-sm:w-full max-md:w-[63%] lg:w-[63%] max-xl:w-2/3 flex-col mt-10 gap-3 max-sm:p-5 max-md:p-5 max-lg:p-5">
           <span>Comments</span>
 
           <Separator />

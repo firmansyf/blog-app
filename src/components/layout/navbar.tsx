@@ -18,7 +18,7 @@ const NavbarComponent: FC = () => {
         >
           Synapsis Blog
         </h1>
-        <div className="flex items-center justify-end gap-2 lg:w-1/5 xl:w-1/5 md:w-1/3 sm:w-full">
+        <div className="flex items-center sm:justify-center lg:justify-end gap-2 lg:w-1/5 xl:w-1/5 md:w-1/3 sm:w-full">
           {/* <Link href={"/about"} className="">
             About
           </Link>

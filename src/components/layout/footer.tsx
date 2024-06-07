@@ -13,7 +13,7 @@ const FooterComponent: FC<Props> = ({ data }) => {
 
   return (
     <>
-      <section className="flex max-lg:flex-row max-sm:flex-col-reverse w-full justify-center gap-10 mt-10 py-12">
+      <section className="flex max-lg:flex-col max-xl:flex-row max-md:flex-col max-sm:flex-col-reverse w-full justify-center gap-10 mt-10 py-12">
         <Card className="p-10 flex flex-col justify-center gap-7 bg-[#283A61] text-white">
           <span className="text-xl font-semibold text-center w-full">
             Subscribe To <br /> Our Newsletter
@@ -36,6 +36,7 @@ const FooterComponent: FC<Props> = ({ data }) => {
           ))}
         </div>
       </section>
+
       <footer className="flex flex-col items-center justify-center p-3 gap-5 bg-[#eee] mt-10">
         <div className="flex items-center text-sm gap-3 mt-4">
           <Link href={"/about"} className="">

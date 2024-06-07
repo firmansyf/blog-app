@@ -42,7 +42,7 @@ export default function ModalDelete({
         </DialogHeader>
 
         <span>Are you sure want to delete data ?</span>
-        <DialogFooter>
+        <DialogFooter className='gap-1'>
           <Button className="bg-red-700" onClick={handleDelete}>
             Delete
           </Button>

@@ -70,7 +70,7 @@ const AddEditModal: FC<Props> = ({
       <Dialog open={openModal} onOpenChange={onClose}>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Adit Data</DialogTitle>
+            <DialogTitle>{getId ? "Edit" : "Add"} Data</DialogTitle>
           </DialogHeader>
           <Formik
             onSubmit={handleOnSubmit}
@@ -138,7 +138,7 @@ const AddEditModal: FC<Props> = ({
                   </div>
 
                   <div className="flex items-center w-full mt-10 justify-end gap-2">
-                    <Button type="submit">Add</Button>
+                    <Button type="submit">{getId ? "Save" : "Add"}</Button>
                     <Button
                       type="button"
                       className="bg-gray-500"

@@ -135,117 +135,116 @@ const UserManagement: FC = () => {
             </Button>
           </div>
         </div>
-      
-          <div className="overflow-auto max-sm:w-full md:w-full lg:w-2/3  xl:w-2/3">
-            <Table className="p-0">
-              <TableCaption>A list of User Management.</TableCaption>
-              <TableHeader className="p-0">
-                <TableRow>
-                  <TableHead className="flex items-center justify-center">
-                    <EyeIcon className="h-4 w-4" />
-                  </TableHead>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Email</TableHead>
-                  <TableHead>Gender</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="text-center">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {searchData?.length > 0
-                  ? searchData?.map((item: any, index: number) => (
-                      <TableRow key={index} className="p-1">
-                        <TableCell className="p-1">
-                          <ToggleGroup variant="outline" type="single">
-                            <ToggleGroupItem
-                              value="italic"
-                              aria-label="Toggle italic"
-                              onClick={() => onDetail(item.id)}
-                            >
-                              <MataIcon className="h-4 w-4" />
-                            </ToggleGroupItem>
-                          </ToggleGroup>
-                        </TableCell>
-                        <TableCell className="font-medium p-1">
-                          {item.name}
-                        </TableCell>
-                        <TableCell className="p-1">{item.email}</TableCell>
-                        <TableCell className="p-1">{item.gender}</TableCell>
-                        <TableCell className="p-1">{item.status}</TableCell>
-                        <TableCell className="p-1">
-                          <ToggleGroup variant="outline" type="multiple">
-                            <ToggleGroupItem
-                              value="bold"
-                              aria-label="Toggle bold"
-                              className="cursor-pointer"
-                              onClick={() => onEdit(item.id)}
-                            >
-                              <PencilIcon className="h-4 w-4 text-orange-500" />
-                            </ToggleGroupItem>
-                            <ToggleGroupItem
-                              value="italic"
-                              aria-label="Toggle bold"
-                              className="cursor-pointer"
-                              onClick={() => onDelete(item.id)}
-                            >
-                              <TrashIcon className="h-4 w-4 text-red-700" />
-                            </ToggleGroupItem>
-                          </ToggleGroup>
-                        </TableCell>
-                      </TableRow>
-                    ))
-                  : data?.map((item: any, index: number) => (
-                      <TableRow key={index} className="p-1">
-                        <TableCell className="p-1">
-                          <ToggleGroup variant="outline" type="single">
-                            <ToggleGroupItem
-                              value="italic"
-                              aria-label="Toggle italic"
-                              onClick={() => onDetail(item.id)}
-                            >
-                              <MataIcon className="h-4 w-4" />
-                            </ToggleGroupItem>
-                          </ToggleGroup>
-                        </TableCell>
-                        <TableCell className="font-medium p-1">
-                          {item.name}
-                        </TableCell>
-                        <TableCell className="p-1">{item.email}</TableCell>
-                        <TableCell className="p-1">{item.gender}</TableCell>
-                        <TableCell className="p-1">{item.status}</TableCell>
-                        <TableCell className="p-1">
-                          <ToggleGroup variant="outline" type="multiple">
-                            <ToggleGroupItem
-                              value="bold"
-                              aria-label="Toggle bold"
-                              className="cursor-pointer"
-                              onClick={() => onEdit(item.id)}
-                            >
-                              <PencilIcon className="h-4 w-4" />
-                            </ToggleGroupItem>
-                            <ToggleGroupItem
-                              value="italic"
-                              aria-label="Toggle bold"
-                              className="cursor-pointer"
-                              onClick={() => onDelete(item.id)}
-                            >
-                              <TrashIcon className="h-4 w-4" />
-                            </ToggleGroupItem>
-                          </ToggleGroup>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-              </TableBody>
-            </Table>
-            <Separator className="my-3" />
-            <PaginationComponent
-              page={isPage}
-              handleNextPage={handleNextPage}
-              handlePrevPage={handlePrevPage}
-              handlePageClick={handlePageClick}
-            />
-          </div>
-        
+
+        <div className="overflow-auto max-sm:w-full md:w-full lg:w-2/3  xl:w-2/3">
+          <Table className="p-0">
+            <TableCaption>A list of User Management.</TableCaption>
+            <TableHeader className="p-0">
+              <TableRow>
+                <TableHead className="flex items-center justify-center">
+                  <EyeIcon className="h-4 w-4" />
+                </TableHead>
+                <TableHead>Name</TableHead>
+                <TableHead>Email</TableHead>
+                <TableHead>Gender</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead className="text-center">Actions</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {searchData?.length > 0
+                ? searchData?.map((item: any, index: number) => (
+                    <TableRow key={index} className="p-1">
+                      <TableCell className="p-1">
+                        <ToggleGroup variant="outline" type="single">
+                          <ToggleGroupItem
+                            value="italic"
+                            aria-label="Toggle italic"
+                            onClick={() => onDetail(item.id)}
+                          >
+                            <MataIcon className="h-4 w-4" />
+                          </ToggleGroupItem>
+                        </ToggleGroup>
+                      </TableCell>
+                      <TableCell className="font-medium p-1">
+                        {item.name}
+                      </TableCell>
+                      <TableCell className="p-1">{item.email}</TableCell>
+                      <TableCell className="p-1">{item.gender}</TableCell>
+                      <TableCell className="p-1">{item.status}</TableCell>
+                      <TableCell className="p-1">
+                        <ToggleGroup variant="outline" type="multiple">
+                          <ToggleGroupItem
+                            value="bold"
+                            aria-label="Toggle bold"
+                            className="cursor-pointer"
+                            onClick={() => onEdit(item.id)}
+                          >
+                            <PencilIcon className="h-4 w-4 text-orange-500" />
+                          </ToggleGroupItem>
+                          <ToggleGroupItem
+                            value="italic"
+                            aria-label="Toggle bold"
+                            className="cursor-pointer"
+                            onClick={() => onDelete(item.id)}
+                          >
+                            <TrashIcon className="h-4 w-4 text-red-700" />
+                          </ToggleGroupItem>
+                        </ToggleGroup>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                : data?.map((item: any, index: number) => (
+                    <TableRow key={index} className="p-1">
+                      <TableCell className="p-1">
+                        <ToggleGroup variant="outline" type="single">
+                          <ToggleGroupItem
+                            value="italic"
+                            aria-label="Toggle italic"
+                            onClick={() => onDetail(item.id)}
+                          >
+                            <MataIcon className="h-4 w-4" />
+                          </ToggleGroupItem>
+                        </ToggleGroup>
+                      </TableCell>
+                      <TableCell className="font-medium p-1">
+                        {item.name}
+                      </TableCell>
+                      <TableCell className="p-1">{item.email}</TableCell>
+                      <TableCell className="p-1">{item.gender}</TableCell>
+                      <TableCell className="p-1">{item.status}</TableCell>
+                      <TableCell className="p-1">
+                        <ToggleGroup variant="outline" type="multiple">
+                          <ToggleGroupItem
+                            value="bold"
+                            aria-label="Toggle bold"
+                            className="cursor-pointer"
+                            onClick={() => onEdit(item.id)}
+                          >
+                            <PencilIcon className="h-4 w-4 text-orange-500" />
+                          </ToggleGroupItem>
+                          <ToggleGroupItem
+                            value="italic"
+                            aria-label="Toggle bold"
+                            className="cursor-pointer"
+                            onClick={() => onDelete(item.id)}
+                          >
+                            <TrashIcon className="h-4 w-4 text-red-700" />
+                          </ToggleGroupItem>
+                        </ToggleGroup>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+            </TableBody>
+          </Table>
+          <Separator className="my-3" />
+          <PaginationComponent
+            page={isPage}
+            handleNextPage={handleNextPage}
+            handlePrevPage={handlePrevPage}
+            handlePageClick={handlePageClick}
+          />
+        </div>
       </main>
       <FooterComponent data={posts} />
       <AddEditModal

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import FooterComponent from "@/components/layout/footer";
@@ -13,9 +14,7 @@ import { fetchBlogPosts } from "@/redux/reducer/postsBlogReducer";
 import { BlogPost } from "@/lib/Type";
 import { getUser } from "@/service/user";
 import { getRandomImage } from "@/lib/utils";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { getCommentData, postComment } from "@/service/comments";
+import { getCommentData } from "@/service/comments";
 
 const DetailPosts: FC = () => {
   const dispatch: any = useDispatch();
@@ -71,21 +70,21 @@ const DetailPosts: FC = () => {
     getRandomImage().then((res: string | null) => setRandomImg(res));
   }, [id]);
 
-  const onSubmit = (e: any) => {
-    e.preventDefault();
+  // const onSubmit = (e: any) => {
+  //   e.preventDefault();
 
-    const params = {
-      body: inputComment,
-      // name: data.
-      // email:
-    };
+  //   const params = {
+  //     body: inputComment,
+  //     // name: data.
+  //     // email:
+  //   };
 
-    postComment(id, params)
-      .then((res) => {
-        // console.log("res :", res);
-      })
-      .catch((err) => console.log("err :", err));
-  };
+  //   postComment(id, params)
+  //     .then((res) => {
+  //       // console.log("res :", res);
+  //     })
+  //     .catch((err) => console.log("err :", err));
+  // };
 
   return (
     <>
@@ -104,8 +103,8 @@ const DetailPosts: FC = () => {
             <div className="flex flex-col w-full justify-center">
               {user?.map((item: any, i: number) => (
                 <>
-                  <span className="tracking-wide">{item.name}</span>
-                  <span className="tracking-wide">{item.email}</span>
+                  <span className="tracking-wide">{item.name || "-"}</span>
+                  <span className="tracking-wide">{item.email || "-"}</span>
                 </>
               ))}
             </div>
@@ -146,7 +145,7 @@ const DetailPosts: FC = () => {
               })}
             </div>
 
-            <form
+            {/* <form
               onSubmit={onSubmit}
               className="absolute bottom-0 flex w-full gap-2"
             >
@@ -159,7 +158,7 @@ const DetailPosts: FC = () => {
               <Button type="submit" className="mr-3">
                 Send
               </Button>
-            </form>
+            </form> */}
           </div>
         </div>
       </section>

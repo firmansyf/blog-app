@@ -18,17 +18,17 @@ const NavbarComponent: FC = () => {
         >
           Synapsis Blog
         </h1>
-        <div className="flex items-center justify-between gap-2 lg:w-1/5 xl:w-1/5 md:w-1/3 sm:w-full">
-          <Link href={"/about"} className="">
+        <div className="flex items-center justify-end gap-2 lg:w-1/5 xl:w-1/5 md:w-1/3 sm:w-full">
+          {/* <Link href={"/about"} className="">
             About
           </Link>
           <Link href={"/contact"} className="">
             Contact
-          </Link>
+          </Link> */}
           <Link
             href={"/user-data"}
             className={`link ${
-              pathname === "/user-data" ? "font-semibold" : ""
+              pathname === "/user-data" ? "font-semibold underline underline-offset-8" : ""
             }`}
           >
             User Data

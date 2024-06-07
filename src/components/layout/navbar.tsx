@@ -10,7 +10,7 @@ const NavbarComponent: FC = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="w-full flex items-center justify-center backdrop-blur-md px-20 md:h-14 sm:h-auto xl:h-14 top-0 fixed max-sm:p-3">
+    <nav className="z-10 w-full flex items-center justify-center backdrop-blur-md px-20 md:h-14 sm:h-auto xl:h-14 top-0 fixed max-sm:p-3">
       <section className="flex lg:w-11/12 sm:w-full md:w-full sm:justify-center md:justify-between lg:justify-between sm:items-center max-sm:flex-col max-md:flex-col max-lg:flex-row">
         <h1
           className="text-xl font-semibold tracking-wide cursor-pointer"

@@ -7,5 +7,8 @@ export interface BlogPost {
 
 export interface PaginationProps {
   page: number;
-  totalPages: number;
+  totalPages?: number;
+  handleNextPage: () => void;
+  handlePrevPage: () => void;
+  handlePageClick: (e: number) => void;
 }

@@ -14,3 +14,26 @@ export function getUserById(id: number) {
     url: `/users/${id}`,
   });
 }
+
+export function postUser(params: any) {
+  return axios({
+    method: "post",
+    url: "/users",
+    data: params,
+  });
+}
+
+export function putUser(id: number, params: any) {
+  return axios({
+    method: "put",
+    url: `/users/${id}`,
+    data: params,
+  });
+}
+
+export function deleteUser(id: number) {
+  return axios({
+    method: "delete",
+    url: `/users/${id}`,
+  });
+}

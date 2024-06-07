@@ -2,7 +2,7 @@
 "use client";
 
 import NavbarComponent from "@/components/layout/navbar";
-import { fetchBlogPosts } from "@/redux/reducer/postsBlogReducer";
+import { fetchBlogPosts, setPage } from "@/redux/reducer/postsBlogReducer";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { RootState } from "@/redux/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,6 +39,22 @@ export default function Home() {
     setSearchedBlog(filteredPosts);
   };
 
+  const handleNextPage = () => {
+    // if (page < totalPages) {
+    dispatch(setPage(page + 1));
+    // }
+  };
+
+  const handlePrevPage = () => {
+    if (page > 1) {
+      dispatch(setPage(page - 1));
+    }
+  };
+
+  const handlePageClick = (pageNumber: number) => {
+    dispatch(setPage(pageNumber));
+  };
+
   return (
     <main className="min-h-screen w-full p-0">
       <NavbarComponent />
@@ -67,7 +83,7 @@ export default function Home() {
         ) : (
           <>
             {searchedBlog?.length > 0 ? (
-              <div className="for-data w-full flex flex-wrap justify-center gap-7">
+              <div className="for-data flex flex-wrap justify-center gap-7 max-md:flex-col max-sm:flex-col max-xl:flex-row max-lg:flex-lg w-full">
                 {searchedBlog?.map((item: BlogPost, index: number) => (
                   <Card
                     key={index}
@@ -75,7 +91,7 @@ export default function Home() {
                     onClick={() => router.push(`/detail/${item.id}`)}
                   >
                     <CardHeader className="p-0">
-                      <div className="flex items-center shadow-md rounded-lg justify-center w-[500px] h-[250px]">
+                      <div className="flex items-center shadow-md rounded-lg justify-center sm:w-full md:w-auto lg:w-auto lg:h-[250px]">
                         <h1 className="text-lg w-2/3 tracking-wide capitalize">
                           {item.title}
                         </h1>
@@ -136,7 +152,13 @@ export default function Home() {
       </section>
 
       <section className="w-full mt-10">
-        <PaginationComponent page={page} totalPages={total_pages} />
+        <PaginationComponent
+          page={page}
+          totalPages={total_pages}
+          handleNextPage={handleNextPage}
+          handlePrevPage={handlePrevPage}
+          handlePageClick={handlePageClick}
+        />
       </section>
 
       <FooterComponent data={posts} />

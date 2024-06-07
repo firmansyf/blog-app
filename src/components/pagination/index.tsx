@@ -8,31 +8,14 @@ import {
   PaginationPrevious,
   PaginationEllipsis,
 } from "@/components/ui/pagination";
-import { useDispatch } from "react-redux";
-import { setPage } from "@/redux/reducer/postsBlogReducer"; // Import setPage action
 import { PaginationProps } from "@/lib/Type";
 
-const PaginationComponent: FC<PaginationProps> = ({ page, totalPages }) => {
-  const dispatch = useDispatch();
-
-  const handleNextPage = () => {
-    // if (page < totalPages) {
-    dispatch(setPage(page + 1));
-    // }
-  };
-
-  const handlePrevPage = () => {
-    if (page > 1) {
-      dispatch(setPage(page - 1));
-    }
-  };
-
-  const handlePageClick = (pageNumber: number) => {
-    dispatch(setPage(pageNumber));
-  };
-
-  console.log("totalPages :", totalPages);
-
+const PaginationComponent: FC<PaginationProps> = ({
+  page,
+  handleNextPage,
+  handlePrevPage,
+  handlePageClick,
+}) => {
   return (
     <Pagination className="">
       <PaginationContent>

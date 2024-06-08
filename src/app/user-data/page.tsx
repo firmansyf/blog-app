@@ -44,7 +44,6 @@ const UserManagement: FC = () => {
   const [detail, setDetail] = useState<any>({});
   const [searchData, setSearchData] = useState<any[]>([]);
   const [searchInput, setSearchInput] = useState<string>("");
-
   const { posts, page, per_page } = useSelector(
     (state: RootState) => state.posts
   );
@@ -98,7 +97,7 @@ const UserManagement: FC = () => {
   };
 
   const searchUser = (keyword: string) => {
-    const filteredData = data.filter((item) =>
+    const filteredData = data?.filter((item) =>
       item?.name?.toLowerCase().includes(keyword.toLowerCase())
     );
     setSearchData(filteredData);
@@ -136,7 +135,7 @@ const UserManagement: FC = () => {
           </div>
         </div>
 
-        <div className="overflow-auto max-sm:w-full md:w-full lg:w-2/3  xl:w-2/3">
+        <div className="overflow-auto max-sm:w-full md:w-full lg:w-2/3 mt-6  xl:w-2/3">
           <Table className="p-0">
             <TableCaption>A list of User Management.</TableCaption>
             <TableHeader className="p-0">
@@ -146,8 +145,8 @@ const UserManagement: FC = () => {
                 </TableHead>
                 <TableHead>Name</TableHead>
                 <TableHead>Email</TableHead>
-                <TableHead>Gender</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead className="pl-0">Gender</TableHead>
+                <TableHead className="pl-0">Status</TableHead>
                 <TableHead className="text-center">Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -170,8 +169,12 @@ const UserManagement: FC = () => {
                         {item.name}
                       </TableCell>
                       <TableCell className="p-1">{item.email}</TableCell>
-                      <TableCell className="p-1">{item.gender}</TableCell>
-                      <TableCell className="p-1">{item.status}</TableCell>
+                      <TableCell className="p-1 capitalize">
+                        {item.gender}
+                      </TableCell>
+                      <TableCell className="p-1 capitalize">
+                        {item.status}
+                      </TableCell>
                       <TableCell className="p-1">
                         <ToggleGroup variant="outline" type="multiple">
                           <ToggleGroupItem
@@ -211,8 +214,12 @@ const UserManagement: FC = () => {
                         {item.name}
                       </TableCell>
                       <TableCell className="p-1">{item.email}</TableCell>
-                      <TableCell className="p-1">{item.gender}</TableCell>
-                      <TableCell className="p-1">{item.status}</TableCell>
+                      <TableCell className="p-1 capitalize">
+                        {item.gender}
+                      </TableCell>
+                      <TableCell className="p-1 capitalize">
+                        {item.status}
+                      </TableCell>
                       <TableCell className="p-1">
                         <ToggleGroup variant="outline" type="multiple">
                           <ToggleGroupItem
@@ -254,6 +261,9 @@ const UserManagement: FC = () => {
         reload={reloadData}
         openModal={openModalAddEdit}
         setOpenModal={setOpenModalAddEdit}
+        setDetail={setDetail}
+        setSearchInput={setSearchInput}
+        setSearchData={setSearchData}
       />
       <ModalDelete
         reload={reloadData}
@@ -261,6 +271,8 @@ const UserManagement: FC = () => {
         openModal={openModalDelete}
         setOpenModal={setOpenModalDelete}
         getId={getItemId}
+        setSearchInput={setSearchInput}
+        setSearchData={setSearchData}
       />
       <ModalDetail
         openModal={openModalDetail}

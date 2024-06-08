@@ -20,6 +20,9 @@ interface Props {
   reload: any;
   getId: number | any;
   detail: any;
+  setDetail: any;
+  setSearchInput: any;
+  setSearchData: any;
 }
 
 const AddEditModal: FC<Props> = ({
@@ -29,6 +32,9 @@ const AddEditModal: FC<Props> = ({
   reload,
   getId,
   detail,
+  setDetail,
+  setSearchInput,
+  setSearchData,
 }) => {
   const handleOnSubmit = (val: any) => {
     const params = {
@@ -43,6 +49,8 @@ const AddEditModal: FC<Props> = ({
         .then((res) => {
           setOpenModal(false);
           setReload(reload + 1);
+          setSearchInput("");
+          setSearchData([]);
           ToastMessage({
             type: "success",
             message: "Data updated successfully!",
@@ -54,6 +62,8 @@ const AddEditModal: FC<Props> = ({
         .then((res) => {
           setOpenModal(false);
           setReload(reload + 1);
+          setSearchInput("");
+          setSearchData([]);
           ToastMessage({
             type: "success",
             message: "Data created successfully!",
@@ -73,6 +83,7 @@ const AddEditModal: FC<Props> = ({
 
   const onClose = () => {
     setOpenModal(false);
+    setDetail({});
   };
   return (
     <>

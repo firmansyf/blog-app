@@ -16,6 +16,8 @@ interface Props {
   reload: any;
   setReload: any;
   getId: any;
+  setSearchInput: any;
+  setSearchData: any;
 }
 export default function ModalDelete({
   openModal,
@@ -23,12 +25,16 @@ export default function ModalDelete({
   getId,
   reload,
   setReload,
+  setSearchInput,
+  setSearchData,
 }: Props) {
   const handleDelete = () => {
     deleteUser(getId)
       .then((res: any) => {
         setOpenModal(false);
         setReload(reload + 1);
+        setSearchInput("");
+        setSearchData([]);
         ToastMessage({
           type: "success",
           message: "Data deleted successfully!",

@@ -13,7 +13,6 @@ import { RootState } from "@/redux/store";
 import { fetchBlogPosts } from "@/redux/reducer/postsBlogReducer";
 import { BlogPost } from "@/lib/Type";
 import { getUser } from "@/service/user";
-import { getRandomImage } from "@/lib/utils";
 import { getCommentData } from "@/service/comments";
 
 const DetailPosts: FC = () => {
@@ -25,10 +24,9 @@ const DetailPosts: FC = () => {
   );
   const [data, setData] = useState<BlogPost | any>({});
   const [user, setUser] = useState<any[]>([]);
-  const [randomImg, setRandomImg] = useState<string | any>();
   const [comments, setComments] = useState<any[]>([]);
-  const [inputComment, setInputComment] = useState<string>("");
-  const [filterUser, setFilterUser] = useState<any>();
+  // const [inputComment, setInputComment] = useState<string>("");
+  // const [filterUser, setFilterUser] = useState<any>();
 
   useEffect(() => {
     dispatch(fetchBlogPosts({ page, per_page }));
@@ -66,8 +64,6 @@ const DetailPosts: FC = () => {
         setData(data);
       })
       .catch(() => "");
-
-    getRandomImage().then((res: string | null) => setRandomImg(res));
   }, [id]);
 
   // const onSubmit = (e: any) => {
@@ -113,7 +109,7 @@ const DetailPosts: FC = () => {
         </div>
 
         <div className="flex xl:w-[63%] sm:w-full flex-col mt-10 gap-7 max-sm:p-5 max-md:p-5 max-lg:p-5">
-          {randomImg && <img src={randomImg} alt="" className="" />}
+          <img src="https://placehold.co/800x400" alt="" className="" />
 
           <p className="">{data.body}</p>
         </div>

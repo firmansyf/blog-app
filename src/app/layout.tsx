@@ -22,6 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>Blog apps</title>
+      </head>
       <body
         className={cn("min-h-screen bg-background antialiased font-roboto")}
       >

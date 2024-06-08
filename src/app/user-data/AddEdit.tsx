@@ -11,6 +11,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Formik, Form, Field } from "formik";
 import { postUser, putUser } from "@/service/user";
+import { ToastMessage } from "@/components/toast-message";
 
 interface Props {
   openModal: boolean;
@@ -42,6 +43,10 @@ const AddEditModal: FC<Props> = ({
         .then((res) => {
           setOpenModal(false);
           setReload(reload + 1);
+          ToastMessage({
+            type: "success",
+            message: "Data updated successfully!",
+          });
         })
         .catch((error) => console.log("error :", error));
     } else {
@@ -49,6 +54,10 @@ const AddEditModal: FC<Props> = ({
         .then((res) => {
           setOpenModal(false);
           setReload(reload + 1);
+          ToastMessage({
+            type: "success",
+            message: "Data created successfully!",
+          });
         })
         .catch((error) => console.log("error :", error));
     }

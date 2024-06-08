@@ -8,6 +8,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
+import { ToastContainer } from "react-toastify";
 
 // export const metadata: Metadata = {
 //   title: "Synapsis - Blog",
@@ -25,6 +26,7 @@ export default function RootLayout({
         className={cn("min-h-screen bg-background antialiased font-roboto")}
       >
         <ProviderRedux store={Store}>{children}</ProviderRedux>
+        <ToastContainer />
       </body>
     </html>
   );

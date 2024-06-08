@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { deleteUser } from "@/service/user";
+import { ToastMessage } from "@/components/toast-message";
 
 interface Props {
   openModal: boolean;
@@ -28,6 +29,10 @@ export default function ModalDelete({
       .then((res: any) => {
         setOpenModal(false);
         setReload(reload + 1);
+        ToastMessage({
+          type: "success",
+          message: "Data deleted successfully!",
+        });
       })
       .catch((err: any) => console.log("Delete error :", err));
   };
@@ -42,7 +47,7 @@ export default function ModalDelete({
         </DialogHeader>
 
         <span>Are you sure want to delete data ?</span>
-        <DialogFooter className='gap-1'>
+        <DialogFooter className="gap-1">
           <Button className="bg-red-700" onClick={handleDelete}>
             Delete
           </Button>

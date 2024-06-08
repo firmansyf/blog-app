@@ -52,9 +52,6 @@ const postsSlice = createSlice({
       .addCase(fetchBlogPosts.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.posts = state.page === 1 ? action.payload : [...action.payload];
-        // state.page === 1
-        //   ? action.payload
-        //   : [...state.posts, ...action.payload];
         state.total_pages = Math.ceil(action.payload.length / state.per_page);
       })
       .addCase(fetchBlogPosts.rejected, (state, action) => {
